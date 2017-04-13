@@ -12,6 +12,7 @@ let chatSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User' },
+  username: String
 });
 
 //the schema is useless so far

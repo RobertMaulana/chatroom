@@ -5,7 +5,7 @@
 
           <h1 id="tag" class="animated zoomIn">Connecting People</h1>
 
-        <img class="animated slideInUp" src="https://files.slack.com/files-tmb/T1UKZ9NBV-F4YNV9UKF-11855aee4b/oiuhac0_1024.jpg" alt="home-picture">
+        <img class="animated slideInUp" src="http://i.imgur.com/pZoYjKN.jpg" alt="home-picture">
       </div>
     </el-row>
   </div>

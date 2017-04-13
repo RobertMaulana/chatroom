@@ -2,10 +2,10 @@
   <div class="">
     <el-row>
       <el-col :span="4">
-        <left-bar></left-bar>
+        <left-bar @pindah="gantiChannel" ></left-bar>
       </el-col>
       <el-col :span="16">
-        <chat-space></chat-space>
+        <chat-space :channel-name="channel"></chat-space>
       </el-col>
       <el-col :span="4">
         <right-bar></right-bar>
@@ -24,6 +24,19 @@ export default {
     LeftBar,
     RightBar,
     ChatSpace
+  },
+  data(){
+    return {
+      channel: 'ibu-ibu salon'
+    }
+  },
+  methods:{
+    gantiChannel(channel){
+
+      this.channel = channel.name
+      // console.log(this.channel);
+    }
+
   }
 }
 </script>

@@ -3,11 +3,7 @@
     <h1>Login</h1>
     <el-row >
       <div class="form">
-<<<<<<< HEAD
         <el-form label-width="120px" class="demo-ruleForm">
-=======
-        <el-form ref="ruleForm2" label-width="120px" class="demo-ruleForm">
->>>>>>> b1174e87c1ac4fd0a76302443f24617e4c42de86
           <el-form-item label="Username" prop="username">
             <el-input type="text" auto-complete="off" v-model="user.username"></el-input>
           </el-form-item>
@@ -36,22 +32,20 @@ export default {
     signIn() {
       console.log('---signIn');
       var self = this;
-      axios.post('http://localhost:3000/users/login', {
+      axios.post('http://0f729622.ngrok.io/users/login', {
         username: self.user.username,
         password: self.user.password
       })
       .then((res) => {
         // console.log(res);
         window.localStorage.setItem('token', res.data.token);
+        window.localStorage.setItem('id', res.data.user.id);
         window.localStorage.setItem('user', res.data.user.name);
         console.log('-user from localStorage', window.localStorage.getItem('user'));
         console.log('---token from localStorage',window.localStorage.getItem('token'));
-        self.user.id = res.data.user.id;
-        self.user.username = res.data.user.username;
-        self.user.name = res.data.user.name;
         // console.log(res.data.token);
         self.user.password = null;
-        location.href="http://localhost:8080/#/chatroom";
+        location.href="/#/chatroom";
       })
       .catch((err) => {
         console.log(err);

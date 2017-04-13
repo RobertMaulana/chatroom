@@ -3,9 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>client</title>
-
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBwgcU9kBsxwC6hqLbJV6IKCgcfTgZntM0",
+        authDomain: "hacktiv8-project-2835d.firebaseapp.com",
+        databaseURL: "https://hacktiv8-project-2835d.firebaseio.com",
+        projectId: "hacktiv8-project-2835d",
+        storageBucket: "hacktiv8-project-2835d.appspot.com",
+        messagingSenderId: "1082265606043"
+      };
+      firebase.initializeApp(config);
+    </script>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->

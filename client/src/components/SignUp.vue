@@ -51,10 +51,10 @@ export default {
     signUp() {
       // console.log(this.datauser);
       let self = this
-      axios.post('http://localhost:3000/users', self.datauser)
+      axios.post('http://0f729622.ngrok.io/users', self.datauser)
            .then(function(res) {
              console.log(res.data);
-             location.href="http://localhost:8080/#"
+             location.href="/#"
            })
            .catch(function(err) {
              alert(err);

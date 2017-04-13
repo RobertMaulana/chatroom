@@ -39,9 +39,9 @@ let getFromChannel = function (req, res, next) {
 
 
 let createOne = function (req, res, next) {
-
   firebase.database().ref(req.body.channel+'/').set({
     content_chat: req.body.text,
+    name: req.body.name,
     timeStamps: (new Date().getTime()).toString(),
     user: req.body.user
   });
@@ -51,7 +51,8 @@ let createOne = function (req, res, next) {
     channel : req.body.channel,
     createdAt : new Date(),
     updatedAt : new Date(),
-    user: req.body.user
+    user: req.body.user,
+    username: req.body.name
   }, function (error, chat){
     if(error) res.send(error);
     else res.send(chat);
