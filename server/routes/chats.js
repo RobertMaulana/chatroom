@@ -7,6 +7,7 @@ let helpers = require('../helpers/token');
 /* GET home page. */
 router.get('/', helpers.authenticate,  controller.getAll);
 router.get('/:id', helpers.authenticate, controller.getOne);
+router.get('/ch/:channel', helpers.authenticate, controller.getFromChannel);
 router.post('/', helpers.authenticate, controller.createOne);
 router.put('/:id', helpers.authenticate, controller.update);
 router.delete('/:id', helpers.authenticate, controller.deleteOne);
