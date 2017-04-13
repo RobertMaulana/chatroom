@@ -15,6 +15,20 @@ const express = require('express'),
       //Express Instance
       app = express();
 
+const firebase = require('firebase');
+
+// firebase config
+let config = {
+  apiKey: "AIzaSyAzaPe6KweBtaePSp8gskeewn-bcVI0Yl0",
+  authDomain: "chatroom-8a73e.firebaseapp.com",
+  databaseURL: "https://chatroom-8a73e.firebaseio.com",
+  projectId: "chatroom-8a73e",
+  storageBucket: "chatroom-8a73e.appspot.com",
+  messagingSenderId: "297779442243"
+};
+
+firebase.initializeApp(config);
+
 //Database connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/messenger', (err) => {
