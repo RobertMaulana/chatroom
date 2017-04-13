@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   let config = {
     apiKey: "AIzaSyAzaPe6KweBtaePSp8gskeewn-bcVI0Yl0",
     authDomain: "chatroom-8a73e.firebaseapp.com",
@@ -13,6 +14,9 @@ $(document).ready(function(){
   $('#chat').on("click",function(){
     send();
     $('#chatText').val('');
+    var textarea = document.querySelector('.chat_area');
+    textarea.scrollTop = textarea.scrollHeight;
+    // console.log(textarea.scrollTop);
   })
 
   function send(){
