@@ -44,14 +44,14 @@ let createOne = function (req, res, next) {
     if(error){
       res.send(error)
     }else{
-      sendMessageNotifNewUser(user.phone);
-      sendMessageBirthday(user.birthdate, user.phone);
+      sendMessageNotifNewUser(req.body.name, user.phone);
+      sendMessageBirthday(req.body.name, user.birthdate, user.phone);
       res.send(user);
     }
   })
 };
 
-function sendMessageNotifNewUser(phoneNumber){
+function sendMessageNotifNewUser(user, phoneNumber){
 
   let phone = phoneNumber.split("");
   phone.shift();
@@ -67,7 +67,7 @@ function sendMessageNotifNewUser(phoneNumber){
   let randomCode = Math.round(Math.random() * 1000000);
 
   let params = {
-    Message: `congratulations! you have registered in our chatroom. As our gratitude, if you want to eat at KFC, you can redeem the following code: CH-${randomCode}  to get a piece of a 30% discount all items at KFC`,
+    Message: `congratulations ${user}! you have registered in our chatApps. As our gratitude, if you want to eat at KFC, you can redeem the following code: CH-${randomCode}  to get a piece of a 30% discount all items at KFC`,
     MessageStructure: 'string',
     PhoneNumber: phoneNumberFormat
   }
@@ -79,7 +79,7 @@ function sendMessageNotifNewUser(phoneNumber){
   console.log("Appreciate Bot is running");
 }
 
-function sendMessageBirthday(birthdate, phoneNumber){
+function sendMessageBirthday(user, birthdate, phoneNumber){
 
   let date = moment(birthdate).format("YYYY MM DD").split(" ");
   let month = date[1];
@@ -96,11 +96,14 @@ function sendMessageBirthday(birthdate, phoneNumber){
     region: 'us-west-2'
   })
 
-  // new CronJob('00 1 0 */'+day+' */'+month+' *', function() {
-  new CronJob('* * * * * *', function() {
-
+  new CronJob('00 1 0 */'+day+' */'+month+' *', function() {
+  // new CronJob('* * * * * *', function() {
     var message = queue.create('sendSMS', {
-      Message: 'this is a test message',
+      Message: `Happy birthday ${user}! We of chatApps pray always wish you long life and achieve what you want in the future.
+
+                Regards,
+
+                Team chatApps`,
       MessageStructure: 'string',
       PhoneNumber: phoneNumberFormat
     })

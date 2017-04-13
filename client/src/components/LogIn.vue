@@ -3,7 +3,11 @@
     <h1>Login</h1>
     <el-row >
       <div class="form">
+<<<<<<< HEAD
+        <el-form label-width="120px" class="demo-ruleForm">
+=======
         <el-form ref="ruleForm2" label-width="120px" class="demo-ruleForm">
+>>>>>>> b1174e87c1ac4fd0a76302443f24617e4c42de86
           <el-form-item label="Username" prop="username">
             <el-input type="text" auto-complete="off" v-model="user.username"></el-input>
           </el-form-item>
@@ -23,9 +27,7 @@ export default {
   data(){
     return {
       user: {
-        id		: null,
         username	: null,
-        name : null,
         password: null
       }
     }
