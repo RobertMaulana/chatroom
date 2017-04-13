@@ -25,13 +25,19 @@ passport.use(new Strategy(
     let isVerify = passwordHash.verify(password, user.password);
     if(isVerify){
       let token = jwt.sign({
-        id: user._id,
-        username: username,
-        name: user.name
+        // id: user._id,
+        username: username
+        // name: user.name
         },
         process.env.SECRET,
         {expiresIn: '1h'});
-      cb(null, token);
+      let data = {token: token,
+                  user: {
+                    id: user._id,
+                    username: username,
+                    name: user.name
+                  }}
+      cb(null, data);
     } else {
       cb("Username or Password not match!");
     }

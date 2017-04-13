@@ -1,6 +1,7 @@
 'use strict'
 
 let Chat = require('../models/chat_model');
+const firebase = require('firebase');
 
 let getAll = function (req, res, next) {
   Chat.find()
@@ -24,6 +25,13 @@ let getOne = function (req, res, next) {
 };
 
 let createOne = function (req, res, next) {
+
+  firebase.database().ref(req.body.channel+'/').set({
+    content_chat: req.body.text,
+    timeStamps: (new Date().getTime()).toString(),
+    user: req.body.user
+  });
+
   Chat.create({
     text : req.body.text,
     channel : req.body.channel,
