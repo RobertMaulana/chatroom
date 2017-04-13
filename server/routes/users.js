@@ -25,6 +25,7 @@ passport.use(new Strategy(
     let isVerify = passwordHash.verify(password, user.password);
     if(isVerify){
       let token = jwt.sign({
+        id: user._id,
         username: username,
         name: user.name
         },
