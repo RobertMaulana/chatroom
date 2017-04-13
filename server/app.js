@@ -11,6 +11,7 @@ const express = require('express'),
       routes = require('./routes/index'),
       users = require('./routes/users'),
       chats = require('./routes/chats'),
+      channels = require('./routes/channels'),
 
       //Express Instance
       app = express();
@@ -45,6 +46,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/chats', chats);
+app.use('/channels', channels);
 
 app.listen(3000);
 

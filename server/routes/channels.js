@@ -1,7 +1,7 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-let controller  = require('../controllers/chat_controller');
+let controller  = require('../controllers/channel_controller');
 let helpers = require('../helpers/token');
 
 /* GET home page. */
