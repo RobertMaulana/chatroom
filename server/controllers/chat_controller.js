@@ -24,6 +24,20 @@ let getOne = function (req, res, next) {
   })
 };
 
+let getFromChannel = function (req, res, next) {
+  Chat.find({ channel: req.params.channel })
+  .sort('updatedAt')
+  // select('name occupation').
+  .exec(function (err, chats){
+  if(err){
+    res.json({error: err});
+  } else {
+    res.json(chats);
+  }
+  })
+};
+
+
 let createOne = function (req, res, next) {
 
   firebase.database().ref(req.body.channel+'/').set({
@@ -74,6 +88,7 @@ let deleteOne = function (req, res, next) {
 module.exports = {
   getAll,
   getOne,
+  getFromChannel,
   createOne,
   update,
   deleteOne
